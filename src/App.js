@@ -26,9 +26,6 @@ export default class App extends Component<Props> {
         <Header header="Stripes - Daily BJJ Training"></Header>
         <View style={styles.container}>
           <LoginForm />
-          <Text style={styles.welcome}>Welcome to React Nartive!</Text>
-          <Text style={styles.instructions}>To get started, edit App.js</Text>
-          <Text style={styles.instructions}>{instructions}</Text>
         </View>
       </>
     );
@@ -40,16 +37,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    backgroundColor: '#3498db',
   },
 });
