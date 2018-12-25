@@ -3,14 +3,15 @@ import { View, Text } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Input from './Input';
+import Button from './Button';
 import WelcomeHeader from './WelcomeHeader';
 
 class LoginForm extends Component {
     state = { email: '', password: '' };
     render() {
         return (
-            <View>
-                {/* <WelcomeHeader /> */}
+            <View style={styles.loginForm}>
+                <WelcomeHeader style={styles.welcomeHeaderStyle} />
                 <Card>
                     <Text style={styles.loginHeaderStyle}>Sign In</Text>
                     <CardSection>
@@ -30,6 +31,10 @@ class LoginForm extends Component {
                             onChangeText={password => this.setState({ password })}
                         />
                     </CardSection>
+                    <CardSection>
+                        <Button>Log In</Button>
+                        <Button>Sign Up</Button>
+                    </CardSection>
                 </Card>
             </View>
         )
@@ -37,13 +42,15 @@ class LoginForm extends Component {
 }
 
 const styles = {
-    welcomeHeaderStyle: {
-        alignSelf: 'center',
-        height: 200,
-        width: 200,
-        backgroundColor: 'purple'
+    loginForm: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-
+    welcomeHeaderStyle: {
+        height: 200,
+    },
     loginHeaderStyle: {
         alignSelf: 'center',
         width: 200,

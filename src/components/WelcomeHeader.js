@@ -4,17 +4,25 @@ import { View, Text } from 'react-native';
 const WelcomeHeader = (props) => {
     const { textStyle, viewStyle } = styles;
     return (
-        < View style={styles.welcomeHeaderStyle} >
+        < View>
             <Text style={styles.h1WelcomeStyle}>Welcome to Stripes</Text>
-            <Text style={styles.h2WelcomeStyle}>Daily BJJ Training App</Text>
+            <Text style={styles.h2WelcomeStyle}>Daily BJJ Training</Text>
         </View >
     );
 }
 
 const styles = {
-    welcomeHeaderStyle: {},
-    h1WelcomeStyle: {},
-    h2WelcomeStyle: {}
+    h1WelcomeStyle: {
+        color: '#f8f8f8',
+        fontSize: 40,
+        textAlign: 'center',
+    },
+    h2WelcomeStyle: {
+        fontSize: 20,
+        textAlign: 'center',
+        color: '#f8f8f8',
+        marginBottom: 60
+    }
 }
 
 export default WelcomeHeader;
