@@ -7,11 +7,10 @@ import WelcomeHeader from './WelcomeHeader';
 
 class LoginForm extends Component {
     state = { email: '', password: '' };
-
     render() {
         return (
-            <>
-                <WelcomeHeader headerOne={} headerTwo={} />
+            <View>
+                {/* <WelcomeHeader /> */}
                 <Card>
                     <Text style={styles.loginHeaderStyle}>Sign In</Text>
                     <CardSection>
@@ -31,11 +30,8 @@ class LoginForm extends Component {
                             onChangeText={password => this.setState({ password })}
                         />
                     </CardSection>
-                    {/* <CardSection>
-                    <Button></Button>
-                </CardSection> */}
                 </Card>
-            </>
+            </View>
         )
     }
 }
