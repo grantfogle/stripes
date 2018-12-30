@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import Card from './Card';
 import CardSection from './CardSection';
 import Input from './Input';
@@ -8,6 +9,11 @@ import WelcomeHeader from './WelcomeHeader';
 
 class LoginForm extends Component {
     state = { email: '', password: '' };
+
+    handleLogin() {
+        Actions.main()
+    }
+
     render() {
         return (
             <View style={styles.loginForm}>
@@ -32,8 +38,9 @@ class LoginForm extends Component {
                         />
                     </CardSection>
                     <CardSection>
-                        <Button>Log In</Button>
+                        <Button handleClick={this.handleLogin()}>Log In</Button>
                         <Button>Sign Up</Button>
+                        <Text onPress={() => this.handleLogin()}>Log In</Text>
                     </CardSection>
                 </Card>
             </View>
