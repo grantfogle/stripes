@@ -1,5 +1,5 @@
 import React, { Component } from 'React';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import DrillCard from './DrillCard';
 import CardSection from './CardSection';
 
@@ -8,6 +8,7 @@ class Main extends Component {
         super(props)
         this.state = {
             drills: '',
+            completed: false
         }
     }
 
@@ -21,25 +22,30 @@ class Main extends Component {
 
     renderDrills() {
         if (this.state.drills.length > 0) {
-            return this.state.drills.map(drill => {
-                return (
-                    <DrillCard>
-                        <CardSection>
-                            <Text>{drill.name}</Text>
-                        </CardSection>
-                    </DrillCard>
-                )
-            })
+            return <DrillCard drills={this.state.drills} />
         }
+
     }
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 {this.renderDrills()}
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#3498db',
+    },
+    // drillCard: {
+    //     fontSize: 20,
+    // }
+});
 
 export default Main;
