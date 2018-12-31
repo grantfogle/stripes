@@ -1,7 +1,9 @@
 import React, { Component } from 'React';
 import { View, Text, StyleSheet } from 'react-native';
 import DrillCard from './DrillCard';
+import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 class Main extends Component {
     constructor(props) {
@@ -24,12 +26,23 @@ class Main extends Component {
         if (this.state.drills.length > 0) {
             return <DrillCard drills={this.state.drills} />
         }
+    }
 
+    generateRandomDrills() {
+        const random = 3;
+        //sort the array randomly
+        //return top 3 results
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <Text style={styles.headerText}>Get Training</Text>
+                <Card>
+                    <CardSection>
+                        <Button>Generate New Drills</Button>
+                    </CardSection>
+                </Card>
                 {this.renderDrills()}
             </View>
         )
@@ -42,6 +55,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#3498db',
+    },
+    headerText: {
+        fontSize: 32,
     },
     // drillCard: {
     //     fontSize: 20,

@@ -1,23 +1,29 @@
 import React from 'React';
-import { Scene, Router } from 'react-native-router-flux';
+import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import Main from './components/Main';
+import CreateDrill from './components/CreateDrill';
 
 const RouterComponent = () => {
     return (
         <Router style={styles.container}>
-
             <Scene key="root" hideNavBar>
                 <Scene key="auth">
                     <Scene key="login" component={LoginForm} title="Please Login" initial />
                 </Scene>
                 <Scene key="main">
                     <Scene
+                        onRight={() => Actions.createDrill()}
                         rightTitle="Add Drill"
-                        onRight={() => { console.log('right!!!') }}
                         key="other"
                         component={Main}
-                        title="Daily Jiu Jitsu" />
+                        title="Daily Jiu Jitsu"
+                        initial
+                    />
+                    <Scene
+                        key="createDrill"
+                        component={CreateDrill}
+                        title="Create a New Drill" />
                 </Scene>
             </Scene>
         </Router>

@@ -6,6 +6,7 @@ import CardSection from './CardSection';
 import Input from './Input';
 import Button from './Button';
 import WelcomeHeader from './WelcomeHeader';
+import Container from './Container';
 
 class LoginForm extends Component {
     state = { email: '', password: '' };
@@ -16,7 +17,8 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <View style={styles.loginForm}>
+            <Container>
+                {/* <View style={styles.loginForm}> */}
                 <WelcomeHeader style={styles.welcomeHeaderStyle} />
                 <Card>
                     <Text style={styles.loginHeaderStyle}>Sign In</Text>
@@ -43,7 +45,9 @@ class LoginForm extends Component {
                         <Text onPress={() => this.handleLogin()}>Log In</Text>
                     </CardSection>
                 </Card>
-            </View>
+                {/* </View> */}
+            </Container>
+
         )
     }
 }
@@ -53,7 +57,7 @@ const styles = {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     welcomeHeaderStyle: {
         height: 200,
