@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { connect } from 'react-redux'
+import { View, TouchableOpacity, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
 
 //might have to change this to a classful component so it rerenders when clicked
 
@@ -7,7 +8,6 @@ class DrillCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            drills: '',
             completed: false
         }
     }
@@ -16,27 +16,40 @@ class DrillCard extends Component {
         return this.setState({ completed: !this.state.completed })
     }
 
-    renderDrills() {
-        if (this.props.drills.length > 0) {
-            return this.props.drills.map(drill => {
-                return (
-                    <View style={styles.rowStyle}>
-                        <Text style={styles.textStyle}>{drill.name}</Text>
-                        <TouchableOpacity style={styles.buttonStyle} onPress={() => this.handleDrill(drill.id)} >
-                            <Text>{this.state.completed ? 'Y' : 'N'}</Text>
-                        </TouchableOpacity>
-                    </View>
-                )
-            })
-        }
+    //create an object in the store that stores the id of a clicked element
+
+    renderDescription(id) {
+        const { description } = this.props.drill;
+        return (
+            <Text>{description}</Text>
+            // <View style={styles.rowStyle}>
+            //     <Text>{this.renderDescripton}</Text>
+            // </View>
+        )
+    }
+
+    selectDrill = () => {
+
     }
 
 
     render() {
+        const { id, name, descripton } = this.props.drill;
+        console.log('cats: ', this.props.drill)
         return (
-            <View style={styles.containerStyle}>
-                {this.renderDrills()}
-            </View>
+            <TouchableWithoutFeedback
+                onPress={() => this.props.selectDrill()} style={styles.containerStyle}>
+                {/* <View  > */}
+                <View style={styles.rowStyle}>
+                    <Text style={styles.textStyle}>{name}</Text>
+                    {/* Hey yo this is gunna remove the drill */}
+                    <TouchableOpacity style={styles.buttonStyle} onPress={() => this.handleDrill()} >
+                        <Text>{this.state.completed ? 'Y' : 'N'}</Text>
+                    </TouchableOpacity>
+                </View>
+                {/* </View> */}
+                {/* {this.renderDescription(id)} */}
+            </TouchableWithoutFeedback>
         );
     };
 
@@ -53,9 +66,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 2,
         elevation: 1,
-        // marginLeft: 5,
-        // marginRight: 5,
-        // marginTop: 10,
         width: '100%',
     },
     buttonStyle: {
@@ -81,4 +91,17 @@ const styles = StyleSheet.create({
     }
 })
 
-export default DrillCard;
+function mapStateToProps(state) {
+    return {
+        posts: state.posts
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    showDescription: (id) => dispatch(showDescription(id))
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(DrillCard)

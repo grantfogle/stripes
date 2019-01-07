@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-function drills(state =, action) {
+function drills(state = [], action) {
     switch (action.type) {
         // case 'ADD_POST':
         //     return [...state, action.post];

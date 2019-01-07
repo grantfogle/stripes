@@ -15,17 +15,11 @@ class Main extends Component {
         }
     }
 
-    // async componentDidMount() {
-    //     const proxy = '';
-    //     const response = await fetch('http://localhost:3000/')
-    //     const json = await response.json();
-    //     this.setState({ drills1: json })
-    //     console.log(this.state.drills)
-    // }
-
     renderDrills() {
-        if (this.props.drills) {
-            return <DrillCard drills={this.props.drills} />
+        if (this.props.drills.length > 0) {
+            return this.props.drills.map(drill => {
+                return <DrillCard drill={drill} />;
+            })
         }
     }
 
@@ -37,6 +31,7 @@ class Main extends Component {
 
     render() {
         return (
+
             <View style={styles.container}>
                 <Text style={styles.headerText}>Get Training</Text>
                 <Card>
@@ -44,8 +39,10 @@ class Main extends Component {
                         <Button>Generate New Drills</Button>
                     </CardSection>
                 </Card>
+
                 {this.renderDrills()}
             </View>
+
         )
     }
 }
