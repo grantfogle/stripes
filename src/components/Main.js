@@ -1,5 +1,6 @@
 import React, { Component } from 'React';
 import { View, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 import DrillCard from './DrillCard';
 import Card from './Card';
 import CardSection from './CardSection';
@@ -9,22 +10,22 @@ class Main extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            drills: '',
+            // drills1: '',
             completed: false
         }
     }
 
-    async componentDidMount() {
-        const proxy = '';
-        const response = await fetch('http://localhost:3000/')
-        const json = await response.json();
-        this.setState({ drills: json })
-        console.log(this.state.drills)
-    }
+    // async componentDidMount() {
+    //     const proxy = '';
+    //     const response = await fetch('http://localhost:3000/')
+    //     const json = await response.json();
+    //     this.setState({ drills1: json })
+    //     console.log(this.state.drills)
+    // }
 
     renderDrills() {
-        if (this.state.drills.length > 0) {
-            return <DrillCard drills={this.state.drills} />
+        if (this.props.drills) {
+            return <DrillCard drills={this.props.drills} />
         }
     }
 
@@ -64,4 +65,11 @@ const styles = StyleSheet.create({
     // }
 });
 
-export default Main;
+function mapStateToProps(state) {
+    return {
+        drills: state.drills,
+    }
+}
+
+export default connect(mapStateToProps)(Main)
+// export default Main;
