@@ -40,7 +40,7 @@ class LoginForm extends Component {
                         />
                     </CardSection>
                     <CardSection>
-                        <Button handleClick={this.handleLogin()}>Log In</Button>
+                        <Button route="main">Log In</Button>
                         <Button>Sign Up</Button>
                         <Text onPress={() => this.handleLogin()}>Log In</Text>
                     </CardSection>

@@ -8,7 +8,8 @@ class DrillCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            completed: false
+            completed: false,
+            show: false
         }
     }
 
@@ -18,37 +19,39 @@ class DrillCard extends Component {
 
     //create an object in the store that stores the id of a clicked element
 
-    renderDescription(id) {
-        const { description } = this.props.drill;
-        return (
-            <Text>{description}</Text>
-            // <View style={styles.rowStyle}>
-            //     <Text>{this.renderDescripton}</Text>
-            // </View>
-        )
+    showDrill(selectedId) {
+        const { description, id } = this.props.drill;
+        console.log('cats drillcard', id)
+        if (selectedId === id) {
+            this.setState({ show: !this.state.show });
+        }
     }
 
-    selectDrill = () => {
-
+    showDescription() {
+        if (this.state.show) {
+            return (
+                <View style={styles.rowStyle}>
+                    <Text>{this.props.drill.description}</Text>
+                </View>
+            );
+        }
     }
-
 
     render() {
-        const { id, name, descripton } = this.props.drill;
+        const { id, name, description } = this.props.drill;
         console.log('cats: ', this.props.drill)
         return (
             <TouchableWithoutFeedback
-                onPress={() => this.props.selectDrill()} style={styles.containerStyle}>
-                {/* <View  > */}
-                <View style={styles.rowStyle}>
-                    <Text style={styles.textStyle}>{name}</Text>
-                    {/* Hey yo this is gunna remove the drill */}
-                    <TouchableOpacity style={styles.buttonStyle} onPress={() => this.handleDrill()} >
-                        <Text>{this.state.completed ? 'Y' : 'N'}</Text>
-                    </TouchableOpacity>
+                onPress={() => this.showDrill(id)} style={styles.containerStyle}>
+                <View>
+                    <View style={styles.rowStyle}>
+                        <Text style={styles.textStyle}>{name}</Text>
+                        <TouchableOpacity style={styles.buttonStyle} onPress={() => this.props.completeDrill(id)} >
+                            <Text>{this.state.completed ? 'Y' : 'N'}</Text>
+                        </TouchableOpacity>
+                    </View>
+                    {this.showDescription()}
                 </View>
-                {/* </View> */}
-                {/* {this.renderDescription(id)} */}
             </TouchableWithoutFeedback>
         );
     };
@@ -91,6 +94,8 @@ const styles = StyleSheet.create({
     }
 })
 
+
+//probably don't need this
 function mapStateToProps(state) {
     return {
         posts: state.posts
@@ -98,7 +103,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    showDescription: (id) => dispatch(showDescription(id))
+    completeDrill: (id) => dispatch({ type: 'COMPLETE_DRILL', drillId: id })
 })
 
 export default connect(

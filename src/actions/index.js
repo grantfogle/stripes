@@ -12,3 +12,21 @@ export function loadDrills() {
         })
     }
 }
+
+export const SELECT_DRILL = 'SELECT_DRILL';
+export function selectDrill(id) {
+    return async(dispatch => {
+        dispatch({
+            type: SELECT_DRILL,
+            selectedDrill: id
+        })
+    })
+}
+
+export const COMPLETE_DRILL = 'COMPLETE_DRILL';
+export function completeDrill(id) {
+    return ({
+        type: COMPLETE_DRILL,
+        drillId: id
+    })
+}
