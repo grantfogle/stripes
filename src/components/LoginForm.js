@@ -11,10 +11,6 @@ import Container from './Container';
 class LoginForm extends Component {
     state = { email: '', password: '' };
 
-    handleLogin() {
-        Actions.main()
-    }
-
     render() {
         return (
             <Container>
@@ -41,7 +37,7 @@ class LoginForm extends Component {
                     </CardSection>
                     <CardSection>
                         <Button route="main">Log In</Button>
-                        <Button>Sign Up</Button>
+                        <Button route="createDrill">Sign Up</Button>
                         <Text onPress={() => this.handleLogin()}>Log In</Text>
                     </CardSection>
                 </Card>

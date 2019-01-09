@@ -7,25 +7,23 @@ import CreateDrill from './components/CreateDrill';
 const RouterComponent = () => {
     return (
         <Router style={styles.container}>
-            <Scene key="root" hideNavBar>
-                <Scene key="auth">
+            <Scene key="root">
+                <Scene key="auth" hideNavBar>
                     <Scene key="login" component={LoginForm} title="Please Login" initial />
                 </Scene>
-                <Scene key="main">
-                    <Scene
-                        onRight={() => Actions.createDrill()}
-                        rightTitle="Add Drill"
-                        key="other"
-                        component={Main}
-                        title="Daily Jiu Jitsu"
-                        initial
-                    />
-                    <Scene
-                        key="createDrill"
-                        component={CreateDrill}
-                        title="Create a New Drill" />
-                </Scene>
+                <Scene
+                    onRight={() => Actions.createDrill()}
+                    rightTitle="Add Drill"
+                    key="main"
+                    component={Main}
+                    title="Daily Jiu Jitsu"
+                />
+                <Scene
+                    key="createDrill"
+                    component={CreateDrill}
+                    title="Create a New Drill" />
             </Scene>
+
         </Router>
     );
 };

@@ -52,7 +52,7 @@ class Main extends Component {
                 <Text style={styles.headerText}>Get Training</Text>
                 <Card>
                     <CardSection>
-                        <Button route={Actions.main()}>Generate New Drills</Button>
+                        <Button>Generate New Drills</Button>
                     </CardSection>
                 </Card>
                 {this.generateRandomDrills()}
