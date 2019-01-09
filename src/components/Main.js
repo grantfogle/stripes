@@ -14,6 +14,20 @@ class Main extends Component {
         this.state = {
             // drills1: '',
             completed: false,
+            // filters: [
+            //     {warmup: false},
+            //     {solo: false},
+            //     {partner: false,
+            //     {fullGuard: false,
+            //     backControl: false,
+            //     halfGuard: false,
+            //     sideControl: false,
+            //     fullMount: false,
+            //     takedowns: false,
+            //     escape: false,
+            //     sweep: false,
+            //     submissions: false
+            // }]
         }
     }
 
@@ -23,6 +37,10 @@ class Main extends Component {
     //             return <DrillCard drill={drill} />;
     //         })
     //     }
+    // }
+
+    // addFilter(filter) {
+    //     this.setState(this.state.filters.push(filter))
     // }
 
     generateRandomDrills() {
@@ -52,9 +70,11 @@ class Main extends Component {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>What do you feel like training today?</Text>
+                </View>
+                <View style={styles.content}>
                     <View style={styles.filterTags}>
                         <View style={styles.filterTagsRow}>
-                            <Tag>Warmup</Tag>
+                            <Tag clicked={false}>Warmup</Tag>
                             <Tag>Solo</Tag>
                             <Tag>Partner</Tag>
                         </View>
@@ -77,9 +97,9 @@ class Main extends Component {
                             <Button route="drills" action={true} func={this.generateRandomDrills()}>Generate New Drills</Button>
                         </CardSection>
                     </Card>
-                    {/* </CardSection>
-                    </Card> */}
                 </View>
+                {/* </CardSection>
+                    </Card> */}
             </View >
         )
     }
@@ -90,23 +110,25 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-around',
-        // alignItems: 'center',
+        alignItems: 'center',
         backgroundColor: '#3498db',
     },
     header: {
-        // flex: 1,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         // backgroundColor: '#3498db',
-        width: '100%'
+        width: '100%',
+        height: 100,
     },
     filterTags: {
         width: 100,
         flexDirection: 'column',
         // justifyContent: 'flex-start',
         width: '100%',
-        marginTop: 10,
+        // marginTop: 10,
         flexWrap: 'wrap',
+        marginBottom: 40,
     },
     filterTagsRow: {
         flexDirection: 'row',
@@ -124,6 +146,11 @@ const styles = StyleSheet.create({
         // flex: 2,
         // justifyContent: 'center',
         width: '100%'
+    },
+    content: {
+        height: 500,
+        flexDirection: 'column',
+        alignItems: 'center'
     }
 });
 
