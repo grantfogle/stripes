@@ -3,6 +3,7 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import Main from './components/Main';
 import CreateDrill from './components/CreateDrill';
+import Drills from './components/Drills';
 
 const RouterComponent = () => {
     return (
@@ -22,6 +23,10 @@ const RouterComponent = () => {
                     key="createDrill"
                     component={CreateDrill}
                     title="Create a New Drill" />
+                <Scene
+                    key="drills"
+                    component={Drills}
+                    title="Get Rolling" />
             </Scene>
 
         </Router>

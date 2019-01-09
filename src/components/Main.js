@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DrillCard from './DrillCard';
 import Card from './Card';
 import CardSection from './CardSection';
+import Tag from './Tag';
 import Button from './Button';
 import { Actions } from 'react-native-router-flux';
 
@@ -49,15 +50,37 @@ class Main extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.headerText}>Get Training</Text>
-                <Card>
-                    <CardSection>
-                        <Button>Generate New Drills</Button>
-                    </CardSection>
-                </Card>
-                {this.generateRandomDrills()}
-            </View>
-
+                <View style={styles.header}>
+                    <Text style={styles.headerText}>What do you feel like training today?</Text>
+                    <View style={styles.filterTags}>
+                        <View style={styles.filterTagsRow}>
+                            <Tag>Warmup</Tag>
+                            <Tag>Solo</Tag>
+                            <Tag>Partner</Tag>
+                        </View>
+                        <View style={styles.filterTagsRow}>
+                            <Tag>Full Guard</Tag>
+                            <Tag>Back Control</Tag>
+                            <Tag>Half Guard</Tag>
+                            <Tag>Side Control</Tag>
+                            <Tag>Full Mount</Tag>
+                            <Tag>Takedowns</Tag>
+                        </View>
+                        <View style={styles.filterTagsRow}>
+                            <Tag color="#2ecc71">Escape</Tag>
+                            <Tag color="#2ecc71">Sweep</Tag>
+                            <Tag color="#2ecc71">Submissions</Tag>
+                        </View>
+                    </View>
+                    <Card>
+                        <CardSection>
+                            <Button route="drills" action={true} func={this.generateRandomDrills()}>Generate New Drills</Button>
+                        </CardSection>
+                    </Card>
+                    {/* </CardSection>
+                    </Card> */}
+                </View>
+            </View >
         )
     }
 }
@@ -65,16 +88,43 @@ class Main extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        // alignItems: 'center',
+        backgroundColor: '#3498db',
+    },
+    header: {
+        // flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#3498db',
+        // backgroundColor: '#3498db',
+        width: '100%'
+    },
+    filterTags: {
+        width: 100,
+        flexDirection: 'column',
+        // justifyContent: 'flex-start',
+        width: '100%',
+        marginTop: 10,
+        flexWrap: 'wrap',
+    },
+    filterTagsRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
     },
     headerText: {
         fontSize: 32,
+        color: '#fff',
+        fontWeight: '300',
+        paddingRight: 10,
+        paddingLeft: 10
     },
-    // drillCard: {
-    //     fontSize: 20,
-    // }
+    drills: {
+        // flex: 2,
+        // justifyContent: 'center',
+        width: '100%'
+    }
 });
 
 function mapStateToProps(state) {
@@ -83,5 +133,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Main)
+const mapDispatchToProps = (dispatch) => ({
+    generateDrills: (kind, position, move) => dispatch({ type: 'GENERATE_DRILLS', kind, position, move })
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
 // export default Main;

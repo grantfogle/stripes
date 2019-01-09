@@ -45,10 +45,10 @@ class DrillCard extends Component {
                 onPress={() => this.showDrill(id)} style={styles.containerStyle}>
                 <View>
                     <View style={styles.rowStyle}>
-                        <Text style={styles.textStyle}>{name}</Text>
                         <TouchableOpacity style={styles.buttonStyle} onPress={() => this.props.completeDrill(id)} >
-                            <Text>{this.state.completed ? 'Y' : 'N'}</Text>
+                            <Text>{this.state.completed ? '' : ''}</Text>
                         </TouchableOpacity>
+                        <Text style={styles.textStyle}>{name}</Text>
                     </View>
                     {this.showDescription()}
                 </View>

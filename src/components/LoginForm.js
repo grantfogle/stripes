@@ -16,6 +16,11 @@ class LoginForm extends Component {
             <Container>
                 {/* <View style={styles.loginForm}> */}
                 <WelcomeHeader style={styles.welcomeHeaderStyle} />
+                <View style={styles.belt}>
+                    <View style={styles.beltWhiteStripe}></View>
+                    <View style={styles.beltRedStripe}></View>
+                    <View style={styles.beltWhiteStripe}></View>
+                </View>
                 <Card>
                     <Text style={styles.loginHeaderStyle}>Sign In</Text>
                     <CardSection>
@@ -36,9 +41,8 @@ class LoginForm extends Component {
                         />
                     </CardSection>
                     <CardSection>
-                        <Button route="main">Log In</Button>
+                        <Button route="main" action={false}>Log In</Button>
                         <Button route="createDrill">Sign Up</Button>
-                        <Text onPress={() => this.handleLogin()}>Log In</Text>
                     </CardSection>
                 </Card>
                 {/* </View> */}
@@ -60,11 +64,30 @@ const styles = {
     },
     loginHeaderStyle: {
         alignSelf: 'center',
-        width: 200,
+        width: 300,
         fontSize: 20,
-        backgroundColor: '#f8f8f8',
+        backgroundColor: '#8e44ad',
+        color: 'white',
         textAlign: 'center',
         padding: 5
+    },
+    belt: {
+        width: '100%',
+        height: 40,
+        backgroundColor: 'black',
+        flexDirection: 'row',
+        paddingLeft: 30,
+        marginBottom: 40
+    },
+    beltWhiteStripe: {
+        height: '100%',
+        width: 10,
+        backgroundColor: 'white',
+    },
+    beltRedStripe: {
+        height: '100%',
+        width: 80,
+        backgroundColor: 'red',
     }
 }
 

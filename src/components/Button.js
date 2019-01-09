@@ -6,10 +6,13 @@ const onBtnPress = (route) => {
     Actions[route].call();
 };
 
-const Button = ({ children, route, target }) => {
+const Button = ({ children, route, action, func }) => {
     const { textStyle, buttonStyle } = styles;
     return (
-        <TouchableOpacity style={buttonStyle} onPress={() => Actions[route]()}>
+        <TouchableOpacity style={buttonStyle} onPress={() => {
+            Actions[route]();
+            (action ? func : '');
+        }}>
             <Text style={textStyle}>
                 {children}
             </Text>
@@ -29,7 +32,7 @@ const styles = {
     buttonStyle: {
         flex: 1,
         alignSelf: 'stretch',
-        backgroundColor: '#3498db',
+        backgroundColor: '#8e44ad',
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#fff',

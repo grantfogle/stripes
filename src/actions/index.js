@@ -30,3 +30,13 @@ export function completeDrill(id) {
         drillId: id
     })
 }
+
+export const GENERATE_DRILLS = 'GENERATE_DRILLS';
+export function generateDrills(kind, position, move) {
+    return ({
+        type: GENERATE_DRILLS,
+        kind,
+        position,
+        move
+    })
+}
