@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Input from './Input';
 import Card from './Card';
 import CardSection from './CardSection';
@@ -18,9 +18,7 @@ class CreateDrill extends Component {
         return (
             <Container>
                 <Card>
-                    <CardSection>
-                        <Text>Add a New Drill</Text>
-                    </CardSection>
+                    <Text style={styles.loginHeaderStyle} >Add a New Drill</Text>
                     <CardSection>
                         <Input
                             label="name"
@@ -56,8 +54,16 @@ class CreateDrill extends Component {
     }
 }
 
-// const styles = StyleSheet.create({
-
-// });
+const styles = StyleSheet.create({
+    loginHeaderStyle: {
+        alignSelf: 'center',
+        width: 300,
+        fontSize: 20,
+        backgroundColor: '#8e44ad',
+        color: 'white',
+        textAlign: 'center',
+        padding: 5
+    },
+});
 
 export default CreateDrill;

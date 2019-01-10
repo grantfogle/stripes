@@ -12,57 +12,35 @@ class Main extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // drills1: '',
-            completed: false,
-            // filters: [
-            //     {warmup: false},
-            //     {solo: false},
-            //     {partner: false,
-            //     {fullGuard: false,
-            //     backControl: false,
-            //     halfGuard: false,
-            //     sideControl: false,
-            //     fullMount: false,
-            //     takedowns: false,
-            //     escape: false,
-            //     sweep: false,
-            //     submissions: false
-            // }]
+            filterOptions: {
+                warmup: false,
+                solo: false,
+                partner: false,
+                fullGuard: false,
+                backControl: false,
+                halfGuard: false,
+                sideControl: false,
+                fullMount: false,
+                takedown: false,
+                escape: false,
+                sweep: false,
+                submission: false
+            }
         }
     }
 
-    // renderDrills() {
-    //     if (this.props.drills.length > 0) {
-    //         return this.props.drills.map(drill => {
-    //             return <DrillCard drill={drill} />;
-    //         })
-    //     }
-    // }
+    handleClick = (event, name) => {
+        console.log(name)
+        console.log(this.state.filterOptions)
+        let filterOptions = Object.assign({}, this.state.filterOptions)
+        filterOptions[name] = !this.state.filterOptions[name];
+        this.setState({ filterOptions })
+        console.log(this.state.filterOptions)
+    }
 
-    // addFilter(filter) {
-    //     this.setState(this.state.filters.push(filter))
-    // }
 
-    generateRandomDrills() {
-        //Want to add input and filter functionality to this to include
-        //types of drills, number of drills, belt level, solo/with a partner, 
-
-        const random = 5;
-        const array = this.props.drills;
-        console.log('ARRAY: ', array)
-        const finalArr = [];
-        if (array.length > 0) {
-            for (let i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-            for (let i = 0; i < random; i++) {
-                finalArr.push(array[i])
-            }
-            return finalArr.map(drill => <DrillCard drill={drill} />);
-        }
+    generateDrillTag() {
+        return this.state.drills.map(drill => (<Tag title="drills" name={drill.name} clicked={drill.clicked} handleClick={this.handleClick}>{drill.name}</Tag>))
     }
 
     render() {
@@ -74,33 +52,73 @@ class Main extends Component {
                 <View style={styles.content}>
                     <View style={styles.filterTags}>
                         <View style={styles.filterTagsRow}>
-                            <Tag clicked={false}>Warmup</Tag>
-                            <Tag>Solo</Tag>
-                            <Tag>Partner</Tag>
+                            <Tag name="warmup"
+                                clicked={this.state.filterOptions.warmup}
+                                handleClick={this.handleClick} >
+                                Warmup
+                            </Tag>
+                            <Tag name="solo"
+                                clicked={this.state.filterOptions.solo}
+                                handleClick={this.handleClick} >
+                                Solo
+                            </Tag>
+                            <Tag name="partner"
+                                clicked={this.state.filterOptions.partner}
+                                handleClick={this.handleClick}>
+                                Partner
+                            </Tag>
                         </View>
                         <View style={styles.filterTagsRow}>
-                            <Tag>Full Guard</Tag>
-                            <Tag>Back Control</Tag>
-                            <Tag>Half Guard</Tag>
-                            <Tag>Side Control</Tag>
-                            <Tag>Full Mount</Tag>
-                            <Tag>Takedowns</Tag>
+                            <Tag name="fullGuard"
+                                clicked={this.state.filterOptions.fullGuard}
+                                handleClick={this.handleClick}>
+                                Full Guard
+                            </Tag>
+                            <Tag name="backControl"
+                                clicked={this.state.filterOptions.backControl}
+                                handleClick={this.handleClick}>
+                                Back Control
+                            </Tag>
+                            <Tag name="halfGuard"
+                                clicked={this.state.filterOptions.halfGuard}
+                                handleClick={this.handleClick}>
+                                Half Guard
+                            </Tag>
+                            <Tag name="sideControl"
+                                clicked={this.state.filterOptions.sideControl}
+                                handleClick={this.handleClick}>
+                                Side Control
+                            </Tag>
+                            <Tag name="fullMount"
+                                clicked={this.state.filterOptions.fullMount}
+                                handleClick={this.handleClick}>
+                                Full Mount
+                            </Tag>
+                            <Tag name="takedown"
+                                clicked={this.state.filterOptions.takedown}
+                                handleClick={this.handleClick}>Takedowns</Tag>
                         </View>
                         <View style={styles.filterTagsRow}>
-                            <Tag color="#2ecc71">Escape</Tag>
-                            <Tag color="#2ecc71">Sweep</Tag>
-                            <Tag color="#2ecc71">Submissions</Tag>
+                            <Tag name="escape"
+                                clicked={this.state.filterOptions.escape}
+                                handleClick={this.handleClick}>Escape</Tag>
+                            <Tag name="sweep"
+                                clicked={this.state.filterOptions.sweep}
+                                handleClick={this.handleClick}>
+                                Sweep
+                            </Tag>
+                            <Tag name="submission"
+                                clicked={this.state.filterOptions.submission}
+                                handleClick={this.handleClick}>Submissions</Tag>
                         </View>
                     </View>
                     <Card>
                         <CardSection>
-                            <Button route="drills" action={true} func={this.generateRandomDrills()}>Generate New Drills</Button>
+                            <Button route="drills" action={true} func={this.props.generateDrills}>Generate New Drills</Button>
                         </CardSection>
                     </Card>
                 </View>
-                {/* </CardSection>
-                    </Card> */}
-            </View >
+            </View>
         )
     }
 }
@@ -117,16 +135,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: '#3498db',
         width: '100%',
         height: 100,
     },
     filterTags: {
         width: 100,
         flexDirection: 'column',
-        // justifyContent: 'flex-start',
         width: '100%',
-        // marginTop: 10,
         flexWrap: 'wrap',
         marginBottom: 40,
     },
@@ -143,8 +158,6 @@ const styles = StyleSheet.create({
         paddingLeft: 10
     },
     drills: {
-        // flex: 2,
-        // justifyContent: 'center',
         width: '100%'
     },
     content: {
@@ -161,9 +174,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    generateDrills: (kind, position, move) => dispatch({ type: 'GENERATE_DRILLS', kind, position, move })
+    generateDrills: (filters) => dispatch({ type: 'GENERATE_DRILLS' })
 })
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main)
-// export default Main;

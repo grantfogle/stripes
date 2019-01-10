@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
         // backgroundColor: '#3498db',
         width: '100%',
         height: '50%',
+        borderBottomColor: "white",
+        borderBottomWidth: 2,
+        marginBottom: 30,
     },
     headerText: {
         fontSize: 32,
@@ -104,6 +107,7 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
     return {
         drills: state.drills,
+
     }
 }
 

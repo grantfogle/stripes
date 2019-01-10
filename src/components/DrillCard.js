@@ -21,7 +21,6 @@ class DrillCard extends Component {
 
     showDrill(selectedId) {
         const { description, id } = this.props.drill;
-        console.log('cats drillcard', id)
         if (selectedId === id) {
             this.setState({ show: !this.state.show });
         }
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 15,
-        borderWidth: 1,
+        borderWidth: 5,
         borderColor: '#fff',
     },
     textStyle: {
@@ -84,6 +83,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
     },
     rowStyle: {
+        borderTopWidth: 1,
         borderBottomWidth: 1,
         padding: 5,
         backgroundColor: '#fff',

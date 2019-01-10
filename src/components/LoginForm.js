@@ -77,7 +77,18 @@ const styles = {
         backgroundColor: 'black',
         flexDirection: 'row',
         paddingLeft: 30,
-        marginBottom: 40
+        marginBottom: 40,
+        //not really sure shadow is showing up at all
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: 'black',
+        borderTopWidth: 0,
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 1,
     },
     beltWhiteStripe: {
         height: '100%',

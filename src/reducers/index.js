@@ -15,20 +15,19 @@ function drills(state = [], action) {
             return state.filter(drill => drill.id !== action.drillId);
         case 'GENERATE_DRILLS':
             const random = 7;
-            const array = state.drills;
-            console.log('ARRAY: ', array)
-            const finalArr = [];
-            for (let i = array.length - 1; i > 0; i--) {
+            console.log('GenerateDrill: ', array)
+            const randomDrills = [];
+            for (let i = state.drills.length - 1; i > 0; i--) {
                 var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                var temp = state.drills[i];
+                state.drills[i] = state.drills[j];
+                state.drills[j] = temp;
             }
             for (let i = 0; i < random; i++) {
                 finalArr.push(array[i])
             }
             // return finalArr.map(drill => <DrillCard drill={drill} />);
-            return { ...state, finalArr };
+            return { ...state, randomDrills };
         default:
             return state;
     }
