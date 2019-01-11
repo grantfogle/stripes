@@ -30,10 +30,10 @@ const Tags = ({ name, clicked, handleClick, children }) => {
     return (
         <TouchableOpacity
             // style={styles.tagStyle}
-            onPress={(e) => {
+            onPress={() => {
                 // console.log(this.state.clicked);
                 // this.setState({ clicked: !this.state.clicked })
-                handleClick(e, name)
+                handleClick(name)
             }}
             style={(clicked ? styles.clickedStyle : styles.unclickedStyle)
             }
@@ -50,10 +50,11 @@ const styles = {
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#9b59b6',
-        marginLeft: 2,
-        marginRight: 2,
-        marginTop: 2,
-        marginBottom: 2,
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        marginBottom: 10,
+        padding: 10,
         opacity: .5,
     },
     clickedStyle: {
@@ -61,10 +62,11 @@ const styles = {
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#9b59b6',
-        marginLeft: 2,
-        marginRight: 2,
-        marginTop: 2,
-        marginBottom: 2,
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        marginBottom: 10,
+        padding: 10,
         opacity: 1
     },
     textStyle: {

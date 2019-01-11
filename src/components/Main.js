@@ -29,7 +29,7 @@ class Main extends Component {
         }
     }
 
-    handleClick = (event, name) => {
+    handleClick = (name) => {
         console.log(name)
         console.log(this.state.filterOptions)
         let filterOptions = Object.assign({}, this.state.filterOptions)
