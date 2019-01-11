@@ -27,6 +27,10 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 // }
 
 const Tags = ({ name, clicked, handleClick, children }) => {
+    let s = clicked ? styles.clickedStyle : styles.unclickedStyle
+    if (name === "warmup") {
+        console.log(clicked, s)
+    }
     return (
         <TouchableOpacity
             // style={styles.tagStyle}
@@ -35,8 +39,7 @@ const Tags = ({ name, clicked, handleClick, children }) => {
                 // this.setState({ clicked: !this.state.clicked })
                 handleClick(name)
             }}
-            style={(clicked ? styles.clickedStyle : styles.unclickedStyle)
-            }
+            style={s}
         >
             <Text style={styles.textStyle}>{children}</Text>
         </ TouchableOpacity >
@@ -58,7 +61,7 @@ const styles = {
         opacity: .5,
     },
     clickedStyle: {
-        backgroundColor: '#9b59b6',
+        backgroundColor: '#336699',
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#9b59b6',

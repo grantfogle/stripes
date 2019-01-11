@@ -30,12 +30,17 @@ class Main extends Component {
     }
 
     handleClick = (name) => {
-        console.log(name)
-        console.log(this.state.filterOptions)
-        let filterOptions = Object.assign({}, this.state.filterOptions)
-        filterOptions[name] = !this.state.filterOptions[name];
-        this.setState({ filterOptions })
-        console.log(this.state.filterOptions)
+        //console.log(name)
+        //console.log("initial state", this.state.filterOptions)
+
+        // this.setState({ filterOptions })
+        this.setState((prevState) => {
+            let filterOptions = Object.assign({}, prevState.filterOptions)
+            filterOptions[name] = !prevState.filterOptions[name];
+            console.log(JSON.stringify(filterOptions))
+            return { filterOptions };
+        })
+        //console.log("modified filter", filterOptions)
     }
 
 
