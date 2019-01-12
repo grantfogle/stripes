@@ -1,5 +1,5 @@
 import React, { Component } from 'React';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import DrillCard from './DrillCard';
 import Card from './Card';
@@ -13,10 +13,21 @@ class Main extends Component {
         super(props)
         this.state = {
             filterOptions: {
-                warmup: false,
-                solo: false,
-                partner: false,
-                fullGuard: false,
+                warmup: {
+                    name: 'Warmup',
+                    status: false,
+                },
+                solo: {
+                    name: 'Solo',
+                    status: false,
+                },
+                partner: {
+                    name: 'Partner',
+                    status: false,
+                },
+                fullGuard:
+                    name: 'Full Guard',
+                status: false,
                 backControl: false,
                 halfGuard: false,
                 sideControl: false,
@@ -37,6 +48,29 @@ class Main extends Component {
         })
     }
 
+    generateDrillTags = () => {
+        const drillTags = this.state.filterOptions.warmup;
+        console.log(drillTags)
+        for (let prop in drillTags) {
+            //onPress={this.handleClick(name)}
+            console.log(prop)
+            console.log(drillTags.name)
+            return (
+                <TouchableOpacity style={styles.clickedStyle}>
+                    <Text style={styles.textStyle}>{drillTags.name}</Text>
+                </TouchableOpacity>
+            )
+        }
+        // style={styles.tagStyle}
+        // onPress = {() => {
+        //     this.handleClick(drill.name)
+        //     handleClick(name)
+        // }
+    }
+    // style = { s }
+    //     >
+    //     <Text style={styles.textStyle}>{children}</Text>
+
 
     generateDrillTag() {
         return this.state.drills.map(drill => (<Tag title="drills" name={drill.name} clicked={drill.clicked} handleClick={this.handleClick}>{drill.name}</Tag>))
@@ -51,6 +85,7 @@ class Main extends Component {
                 <View style={styles.content}>
                     <View style={styles.filterTags}>
                         <View style={styles.filterTagsRow}>
+                            {this.generateDrillTags()}
                             <Tag name="warmup"
                                 clicked={this.state.filterOptions.warmup}
                                 handleClick={this.handleClick} >
@@ -163,7 +198,39 @@ const styles = StyleSheet.create({
         height: 500,
         flexDirection: 'column',
         alignItems: 'center'
-    }
+    },
+    unclickedStyle: {
+        backgroundColor: '#9b59b6',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#9b59b6',
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        marginBottom: 10,
+        padding: 10,
+        opacity: .5,
+    },
+    clickedStyle: {
+        backgroundColor: '#336699',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#9b59b6',
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        marginBottom: 10,
+        padding: 10,
+        opacity: 1
+    },
+    textStyle: {
+        alignSelf: 'center',
+        color: '#f0f0f0',
+        fontSize: 24,
+        fontWeight: '400',
+        paddingLeft: 5,
+        paddingRight: 5,
+    },
 });
 
 function mapStateToProps(state) {
