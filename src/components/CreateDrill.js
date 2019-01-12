@@ -54,14 +54,13 @@ class CreateDrill extends Component {
             this.setState({ created: false });
         }
             .bind(this),
-            2000);
+            3500);
     }
 
     render() {
         console.log(this.state)
         return (
             <Container>
-                <Text style={{ display: (this.state.created ? 'flex' : 'none') }}>asdfasdf</Text>
                 <Card>
                     <Text style={styles.loginHeaderStyle}>Add a New Drill</Text>
                     <CardSection>
@@ -118,7 +117,8 @@ class CreateDrill extends Component {
                         </TouchableOpacity>
                     </CardSection>
                 </Card>
-            </Container>
+                <Text style={styles.alertBox}>{this.state.created ? 'Drill Created!' : ''}</Text>
+            </Container >
         );
     }
 }
@@ -150,7 +150,13 @@ const styles = StyleSheet.create({
         borderColor: '#fff',
         marginLeft: 5,
         marginRight: 5
-    }
+    },
+    alertBox: {
+        color: '#fff',
+        fontSize: 24,
+        height: 50,
+        marginTop: 20,
+    },
 });
 
 export default CreateDrill;
