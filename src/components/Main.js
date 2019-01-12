@@ -117,7 +117,7 @@ class Main extends Component {
                         </CardSection>
                     </Card>
                 </View>
-            </View>
+            </View >
         )
     }
 }

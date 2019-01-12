@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const Input = ({ label, value, onChangeText, placeholder, updatingText, secureTextEntry }) => {
+const Input = ({ label, name, value, onChangeText, placeholder, updatingText, secureTextEntry }) => {
     const { inputStyle, labelStyle, containerStyle } = styles;
     return (
         <View style={containerStyle}>
