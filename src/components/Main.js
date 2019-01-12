@@ -30,17 +30,11 @@ class Main extends Component {
     }
 
     handleClick = (name) => {
-        //console.log(name)
-        //console.log("initial state", this.state.filterOptions)
-
-        // this.setState({ filterOptions })
         this.setState((prevState) => {
             let filterOptions = Object.assign({}, prevState.filterOptions)
             filterOptions[name] = !prevState.filterOptions[name];
-            console.log(JSON.stringify(filterOptions))
             return { filterOptions };
         })
-        //console.log("modified filter", filterOptions)
     }
 
 
@@ -123,7 +117,7 @@ class Main extends Component {
                         </CardSection>
                     </Card>
                 </View>
-            </View>
+            </View >
         )
     }
 }
