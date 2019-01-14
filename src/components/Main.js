@@ -86,6 +86,9 @@ class Main extends Component {
 
     }
 
+    //generateDrills()
+    //add action, take filters, use filters as a way to parse through data
+
     render() {
         return (
             <View style={styles.container}>
