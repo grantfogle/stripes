@@ -71,14 +71,6 @@ class CreateDrill extends Component {
                             placeholder="Drill Name"
                         />
                     </CardSection>
-                    {/* <CardSection>
-                        <Input
-                            label="Solo"
-                            name="solo"
-                            updatingText={this.updatingText}
-                            placeholder="Partner or Solo?"
-                        />
-                    </CardSection> */}
                     <CardSection>
                         <Input
                             label="Belt Level"
