@@ -83,13 +83,13 @@ class Main extends Component {
 
         }
         return drills;
-
     }
 
     //generateDrills()
     //add action, take filters, use filters as a way to parse through data
 
     render() {
+        const { buttonContainer } = styles;
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -98,11 +98,9 @@ class Main extends Component {
                 <View style={styles.content}>
                     <View style={styles.filterTags}>{this.generateDrillTags()}</View>
                 </View>
-                <Card>
-                    <CardSection>
-                        <Button route="drills" action={true} func={this.props.generateDrills}>Generate New Drills</Button>
-                    </CardSection>
-                </Card>
+                <View style={buttonContainer}>
+                    <Button route="drills" action={true} func={this.props.generateDrills}>Generate New Drills</Button>
+                </View>
             </View>
         )
     }
@@ -110,18 +108,19 @@ class Main extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-around',
+        // flexDirection: 'column',
+        justifyContent: 'center',
+        height: '100%',
+        width: '100%',
         alignItems: 'center',
         backgroundColor: '#3498db',
     },
     header: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        height: 100,
+        marginBottom: 40,
+        // height: 100,
     },
     filterTags: {
         width: 100,
@@ -129,7 +128,7 @@ const styles = StyleSheet.create({
         width: '100%',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        marginBottom: 40,
+        // marginBottom: 40,
     },
     headerText: {
         fontSize: 32,
@@ -142,9 +141,10 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     content: {
-        height: 500,
+        // height: 400,
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 40,
     },
     unclickedStyle: {
         backgroundColor: '#336699',
@@ -188,6 +188,10 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         paddingRight: 5,
     },
+    buttonContainer: {
+        width: 200,
+        height: 40,
+    }
 });
 
 function mapStateToProps(state) {
