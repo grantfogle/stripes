@@ -32,10 +32,10 @@ const styles = {
     buttonStyle: {
         flex: 1,
         alignSelf: 'stretch',
-        backgroundColor: '#8e44ad',
+        backgroundColor: '#9b59b6',
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: '#8e44ad',
+        borderColor: '#9b59b6',
         marginLeft: 5,
         marginRigth: 5
     }

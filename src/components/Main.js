@@ -11,54 +11,18 @@ class Main extends Component {
         super(props)
         this.state = {
             filterOptions: {
-                warmup: {
-                    name: 'Warmup',
-                    status: false,
-                },
-                solo: {
-                    name: 'Solo',
-                    status: false,
-                },
-                partner: {
-                    name: 'Partner',
-                    status: false,
-                },
-                fullGuard: {
-                    name: 'Full Guard',
-                    status: false,
-                },
-                backControl: {
-                    name: 'Back Control',
-                    status: false,
-                },
-                halfGuard: {
-                    name: 'Half Guard',
-                    status: false,
-                },
-                sideControl: {
-                    name: 'Side Control',
-                    status: false,
-                },
-                fullMount: {
-                    name: 'Full Mount',
-                    status: false,
-                },
-                takedown: {
-                    name: 'Takedown',
-                    status: false,
-                },
-                escape: {
-                    name: 'Escape',
-                    status: false,
-                },
-                sweep: {
-                    name: 'Sweep',
-                    status: false,
-                },
-                submission: {
-                    name: 'Submission',
-                    status: false
-                },
+                warmup: { name: 'Warmup', status: false },
+                solo: { name: 'Solo', status: false },
+                partner: { name: 'Partner', status: false },
+                fullGuard: { name: 'Full Guard', status: false },
+                backControl: { name: 'Back Control', status: false },
+                halfGuard: { name: 'Half Guard', status: false },
+                sideControl: { name: 'Side Control', status: false },
+                fullMount: { name: 'Full Mount', status: false },
+                takedown: { name: 'Takedown', status: false },
+                escape: { name: 'Escape', status: false },
+                sweep: { name: 'Sweep', status: false },
+                submission: { name: 'Submission', status: false },
             }
         }
     }
@@ -108,7 +72,6 @@ class Main extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        // flexDirection: 'column',
         justifyContent: 'center',
         height: '100%',
         width: '100%',
@@ -120,7 +83,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         marginBottom: 40,
-        // height: 100,
     },
     filterTags: {
         width: 100,
@@ -128,7 +90,6 @@ const styles = StyleSheet.create({
         width: '100%',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        // marginBottom: 40,
     },
     headerText: {
         fontSize: 32,
@@ -141,14 +102,12 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     content: {
-        // height: 400,
         flexDirection: 'column',
         alignItems: 'center',
         marginBottom: 40,
     },
     unclickedStyle: {
         backgroundColor: '#336699',
-        // backgroundColor: '#9b59b6',
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#336699',
