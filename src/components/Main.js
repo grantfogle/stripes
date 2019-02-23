@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
+import ButtonTwo from './reusable/ButtonTwo';
 import { Actions } from 'react-native-router-flux';
 
 class Main extends Component {
@@ -49,6 +50,10 @@ class Main extends Component {
         return drills;
     }
 
+    generateDrills = () => {
+        let filteredDrills = this.state.filterOptions.map(drill => drill.status === true);
+        console.log(filteredDrills);
+    }
     //generateDrills()
     //add action, take filters, use filters as a way to parse through data
 
@@ -63,7 +68,8 @@ class Main extends Component {
                     <View style={styles.filterTags}>{this.generateDrillTags()}</View>
                 </View>
                 <View style={buttonContainer}>
-                    <Button route="drills" action={true} func={this.props.generateDrills}>Generate New Drills</Button>
+                    <ButtonTwo>Generate New Drills</ButtonTwo>
+                    {/* <Button route="drills" action={true} func={this.generateDrills}>Generate New Drills</Button> */}
                 </View>
             </View>
         )
