@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
-import ButtonTwo from './reusable/ButtonTwo';
+import ButtonTwo from './reusable/buttonTwo';
 import { Actions } from 'react-native-router-flux';
 
 class Main extends Component {
