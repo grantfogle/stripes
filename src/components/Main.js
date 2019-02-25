@@ -56,6 +56,11 @@ class Main extends Component {
     }
     //generateDrills()
     //add action, take filters, use filters as a way to parse through data
+    //warmup vs drill
+    //solo vs partner
+    //escape/sweeps vs submissions
+    //backcontrol vs halfguard vs full guard vs sidecontrol vs takedowns
+
 
     render() {
         const { buttonContainer } = styles;
@@ -65,8 +70,21 @@ class Main extends Component {
                     <Text style={styles.headerText}>What do you feel like training today?</Text>
                 </View>
                 <View style={styles.content}>
-                    <View style={styles.filterTags}>{this.generateDrillTags()}</View>
+                    <View style={styles.filterTags}>
+                        <TouchableOpacity style={styles.unclickedStyle} onPress={() => this.handleClick(prop)}>
+                            <Text style={styles.textStyle}>Solo</Text>
+                        </TouchableOpacity >
+                        <Text style={styles.textStyle}>
+                            vs.
+                        </Text>
+                        <TouchableOpacity style={styles.unclickedStyle} onPress={() => this.handleClick(prop)}>
+                            <Text style={styles.textStyle}>Partner</Text>
+                        </TouchableOpacity >
+                    </View>
                 </View>
+                {/* <View style={styles.content}>
+                    <View style={styles.filterTags}>{this.generateDrillTags()}</View>
+                </View> */}
                 <View style={buttonContainer}>
                     <ButtonTwo>Generate New Drills</ButtonTwo>
                     {/* <Button route="drills" action={true} func={this.generateDrills}>Generate New Drills</Button> */}
@@ -121,12 +139,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 10,
-        marginBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
+        // marginLeft: 10,
+        // marginRight: 10,
+        // marginTop: 10,
+        // marginBottom: 10,
+        // paddingLeft: 20,
+        // paddingRight: 20,
     },
     clickedStyle: {
         backgroundColor: '#9b59b6',

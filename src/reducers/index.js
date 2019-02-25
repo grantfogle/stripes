@@ -5,7 +5,6 @@ function drills(state = [], action) {
         // case 'ADD_POST':
         //     return [...state, action.post];
         case 'LOAD_DRILLS':
-            console.log(action.drills)
             return action.drills;
         case 'SELECT_DRILLS':
             return action.selectedDrill;

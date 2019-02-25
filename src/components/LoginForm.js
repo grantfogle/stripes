@@ -66,7 +66,7 @@ const styles = {
         alignSelf: 'center',
         width: 300,
         fontSize: 20,
-        backgroundColor: '#8e44ad',
+        backgroundColor: '#9b59b6',
         color: 'white',
         textAlign: 'center',
         padding: 5
@@ -78,7 +78,6 @@ const styles = {
         flexDirection: 'row',
         paddingLeft: 30,
         marginBottom: 40,
-        //not really sure shadow is showing up at all
         borderWidth: 1,
         borderRadius: 2,
         borderColor: 'black',
