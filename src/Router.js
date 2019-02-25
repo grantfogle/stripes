@@ -14,7 +14,7 @@ const RouterComponent = () => {
                 </Scene>
                 <Scene
                     onRight={() => Actions.createDrill()}
-                    rightTitle="Add Drill"
+                    rightTitle="New Session"
                     key="main"
                     component={Main}
                     title="Daily Jiu Jitsu"

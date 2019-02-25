@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Card from './reusable/Card';
 import CardSection from './reusable/CardSection';
 import Button from './reusable/Button';
+// import Footer from './Footer';
 import Tag from './reusable/Tag';
 import ButtonTwo from './reusable/ButtonTwo';
 import { Actions } from 'react-native-router-flux';
@@ -74,7 +75,7 @@ class Main extends Component {
                     <View style={styles.filterTags}>
                         <Tag>Solo</Tag>
                         <Text style={styles.textStyle}>
-                            vs.
+                            vs
                         </Text>
                         <Tag>Partner</Tag>
                     </View>
@@ -83,18 +84,38 @@ class Main extends Component {
                     <View style={styles.filterTags}>
                         <Tag>Warmup</Tag>
                         <Text style={styles.textStyle}>
-                            vs.
+                            or
                         </Text>
                         <Tag>Drill</Tag>
+                    </View>
+                </View>
+                <View style={styles.content}>
+                    <View style={styles.filterTags}>
+                        <Tag>Esc/Sweeps</Tag>
+                        <Text style={styles.textStyle}>
+                            or
+                        </Text>
+                        <Tag>Subs</Tag>
+                    </View>
+                </View>
+                <View style={styles.content}>
+                    <View style={styles.filterTags}>
+                        <Text style={styles.textStyle}>Positions</Text>
+                        <Tag>Back Control</Tag>
+                        <Tag>Full Mount</Tag>
+                        <Tag>Side Control</Tag>
+                        <Tag>Half Guard</Tag>
+                        <Tag>Full Guard</Tag>
                     </View>
                 </View>
                 {/* <View style={styles.content}>
                     <View style={styles.filterTags}>{this.generateDrillTags()}</View>
                 </View> */}
                 <View style={buttonContainer}>
-                    <ButtonTwo>Generate New Drills</ButtonTwo>
+                    <ButtonTwo route="drills">Generate New Drills</ButtonTwo>
                     {/* <Button route="drills" action={true} func={this.generateDrills}>Generate New Drills</Button> */}
                 </View>
+                <Footer />
             </View>
         )
     }
@@ -135,7 +156,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 40,
     },
     unclickedStyle: {
         backgroundColor: '#336699',
@@ -146,12 +166,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        // marginLeft: 10,
-        // marginRight: 10,
-        // marginTop: 10,
-        // marginBottom: 10,
-        // paddingLeft: 20,
-        // paddingRight: 20,
     },
     clickedStyle: {
         backgroundColor: '#9b59b6',
@@ -179,6 +193,7 @@ const styles = StyleSheet.create({
         paddingRight: 5,
     },
     buttonContainer: {
+        marginTop: 40,
         width: 200,
         height: 40,
     }
