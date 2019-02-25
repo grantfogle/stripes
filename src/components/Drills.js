@@ -2,10 +2,9 @@ import React, { Component } from 'React';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import DrillCard from './DrillCard';
-import Card from './Card';
-import CardSection from './CardSection';
-import Tag from './Tag';
-import Button from './Button';
+import Card from './reusable/Card';
+import CardSection from './reusable/CardSection';
+import Button from './reusable/Button';
 import { Actions } from 'react-native-router-flux';
 
 class Main extends Component {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import Card from './Card';
-import CardSection from './CardSection';
-import Input from './Input';
-import Button from './Button';
+import Card from './reusable/Card';
+import CardSection from './reusable/CardSection';
+import Input from './reusable/Input';
+import Button from './reusable/Button';
 import WelcomeHeader from './WelcomeHeader';
 import Container from './Container';
 

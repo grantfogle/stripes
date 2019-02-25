@@ -1,10 +1,11 @@
 import React, { Component } from 'React';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import Card from './Card';
-import CardSection from './CardSection';
-import Button from './Button';
-import ButtonTwo from './reusable/buttonTwo';
+import Card from './reusable/Card';
+import CardSection from './reusable/CardSection';
+import Button from './reusable/Button';
+import Tag from './reusable/Tag';
+import ButtonTwo from './reusable/ButtonTwo';
 import { Actions } from 'react-native-router-flux';
 
 class Main extends Component {
@@ -71,15 +72,20 @@ class Main extends Component {
                 </View>
                 <View style={styles.content}>
                     <View style={styles.filterTags}>
-                        <TouchableOpacity style={styles.unclickedStyle} onPress={() => this.handleClick(prop)}>
-                            <Text style={styles.textStyle}>Solo</Text>
-                        </TouchableOpacity >
+                        <Tag>Solo</Tag>
                         <Text style={styles.textStyle}>
                             vs.
                         </Text>
-                        <TouchableOpacity style={styles.unclickedStyle} onPress={() => this.handleClick(prop)}>
-                            <Text style={styles.textStyle}>Partner</Text>
-                        </TouchableOpacity >
+                        <Tag>Partner</Tag>
+                    </View>
+                </View>
+                <View style={styles.content}>
+                    <View style={styles.filterTags}>
+                        <Tag>Warmup</Tag>
+                        <Text style={styles.textStyle}>
+                            vs.
+                        </Text>
+                        <Tag>Drill</Tag>
                     </View>
                 </View>
                 {/* <View style={styles.content}>
@@ -126,8 +132,9 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     content: {
-        flexDirection: 'column',
+        flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
         marginBottom: 40,
     },
     unclickedStyle: {

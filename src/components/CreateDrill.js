@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Input from './Input';
-import Card from './Card';
-import CardSection from './CardSection';
-import Button from './Button';
+import Input from './reusable/Input';
+import Card from './reusable/Card';
+import CardSection from './reusable/CardSection';
+import Button from './reusable/Button';
 import Container from './Container';
 
 
